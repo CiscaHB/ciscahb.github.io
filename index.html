@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cisca HB — Data Analyst</title>
+  <meta name="description" content="Data solutions built with people and planet in mind — Cisca HB, Data Analyst." />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/293821705?v=4" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.3.0/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F5F0;
+      --bg-secondary: #EAF0EC;
+      --text: #1E2820;
+      --text-muted: #5C6E63;
+      --text-faint: #8A9E93;
+      --border: rgba(45,92,82,0.15);
+      --border-hover: rgba(45,92,82,0.35);
+      --accent: #2D5C52;
+      --accent-mid: #4E7B6A;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141d19;
+        --bg-secondary: #1c2922;
+        --text: #e4ede8;
+        --text-muted: #8aaa97;
+        --text-faint: #5a7265;
+        --border: rgba(100,180,150,0.15);
+        --border-hover: rgba(100,180,150,0.32);
+        --accent: #7bbfaa;
+        --accent-mid: #5fa08c;
+      }
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Banner ── */
+    .banner {
+      background: #2D5C52;
+      margin: 0 -1.5rem;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .banner-title {
+      font-family: "Lora", Georgia, serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #F0F7F4;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .banner-sub {
+      font-size: 14px;
+      color: rgba(240,247,244,0.75);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 0.5px solid var(--border);
+    }
+    .hero-text h1 {
+      font-size: 28px;
+      font-weight: 600;
+      font-family: "Lora", Georgia, serif;
+      letter-spacing: -0.5px;
+      margin-bottom: 3px;
+    }
+    .username {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .tagline {
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
+    .meta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .meta-item {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .meta-item i { font-size: 15px; }
+    .gh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--bg);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .gh-btn:hover { background: var(--bg-secondary); }
+
+    /* ── Sections ── */
+    .section {
+      padding: 2.25rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── About pillars ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .pillar-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+    }
+    .pillar-card i {
+      font-size: 20px;
+      color: var(--accent-mid);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .pillar-title { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    .pillar-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .skill-tile {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      background: var(--bg);
+    }
+    .skill-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .skill-detail { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+    .skill-bar-bg {
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .skill-bar-fill { height: 100%; border-radius: 2px; background: var(--accent-mid); }
+
+    /* ── Repos ── */
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .repo-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      background: var(--bg);
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.15s;
+    }
+    .repo-card:hover { border-color: var(--border-hover); }
+    .repo-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .repo-top i { font-size: 16px; color: var(--text-muted); }
+    .repo-name { font-size: 14px; font-weight: 600; color: var(--accent); }
+    .repo-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+    .repo-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: flex; gap: 1rem; }
+    .tl-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 28px;
+      flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent-mid);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .tl-line {
+      width: 1px;
+      flex: 1;
+      background: var(--border);
+      margin: 4px 0;
+      min-height: 24px;
+    }
+    .tl-content { padding-bottom: 1.5rem; flex: 1; }
+    .tl-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .tl-sub { font-size: 12px; color: var(--text-muted); }
+
+    /* ── Contact ── */
+    .contact-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      color: var(--text);
+      background: var(--bg);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .contact-chip:hover { background: var(--bg-secondary); }
+    .contact-chip i { font-size: 16px; color: var(--text-muted); }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 2rem 0;
+      font-size: 12px;
+      color: var(--text-faint);
+      text-align: center;
+    }
+    .footer a { color: var(--text-muted); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── Mobile ── */
+    @media (max-width: 560px) {
+      .hero { flex-direction: column; gap: 1.25rem; }
+      .avatar { width: 72px; height: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Banner -->
+    <div class="banner">
+      <div class="banner-title">Data solutions built for<br>people &amp; planet.</div>
+      <div class="banner-sub">Emphatic problem-solver at the intersection of data and societal need.</div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/293821705?v=4" alt="Cisca HB" />
+      <div class="hero-text">
+        <h1>Cisca</h1>
+        <p class="username">@CiscaHB</p>
+        <p class="tagline">Data solutions built with people and planet in mind — at the intersection of technical data and urgent societal needs.</p>
+        <div class="meta-row">
+          <span class="meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> Joined June 2026</span>
+          <span class="meta-item"><i class="ti ti-users" aria-hidden="true"></i> 0 followers · 1 following</span>
+        </div>
+        <a class="gh-btn" href="https://github.com/CiscaHB" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub ↗
+        </a>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section class="section">
+      <p class="section-label">About</p>
+      <div class="pillars">
+        <div class="pillar-card">
+          <i class="ti ti-school" aria-hidden="true"></i>
+          <div class="pillar-title">Foundation</div>
+          <div class="pillar-desc">BSc graduate and former software engineer with experience in robust corporate systems</div>
+        </div>
+        <div class="pillar-card">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <div class="pillar-title">Perspective</div>
+          <div class="pillar-desc">Care and charity sector experience shaped an empathetic, end-user-focused approach to problem solving</div>
+        </div>
+        <div class="pillar-card">
+          <i class="ti ti-target" aria-hidden="true"></i>
+          <div class="pillar-title">Ambition</div>
+          <div class="pillar-desc">Collaborating at the intersection of technical data and urgent societal needs to deliver considered solutions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <p class="section-label">Skills</p>
+      <div class="skills-grid">
+        <div class="skill-tile">
+          <div class="skill-name">Data Analysis</div>
+          <div class="skill-detail">Cleaning, analysis, visualising</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">SQL</div>
+          <div class="skill-detail">Queries, filtering, relational databases</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">Python</div>
+          <div class="skill-detail">Scripts, loops, data handling</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">Excel</div>
+          <div class="skill-detail">Dashboards, pivot tables, formulas</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">Power BI</div>
+          <div class="skill-detail">Dynamic reports, DAX, modelling</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:76%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">Tableau</div>
+          <div class="skill-detail">Interactive dashboards, visual storytelling</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:74%"></div></div>
+        </div>
+        <div class="skill-tile">
+          <div class="skill-name">Azure</div>
+          <div class="skill-detail">Cloud data services, storage, workflows</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repositories -->
+    <section class="section">
+      <p class="section-label">Repositories</p>
+      <div class="repo-grid">
+        <a class="repo-card" href="https://github.com/CiscaHB/My-Excel-Bootcamp-Projects-Repository" target="_blank" rel="noopener">
+          <div class="repo-top"><i class="ti ti-table" aria-hidden="true"></i><span class="repo-name">Excel Bootcamp Projects</span></div>
+          <p class="repo-desc">Data analysis projects from the LeepTalent bootcamp — cleaning, dashboards, and trend analysis.</p>
+          <span class="repo-lang"><span class="lang-dot" style="background:#217346"></span>Excel</span>
+        </a>
+        <a class="repo-card" href="https://github.com/CiscaHB/Data-Bootcamp-SQL-Repository" target="_blank" rel="noopener">
+          <div class="repo-top"><i class="ti ti-database" aria-hidden="true"></i><span class="repo-name">SQL Repository</span></div>
+          <p class="repo-desc">MySQL projects — extracting and analysing data from relational databases.</p>
+          <span class="repo-lang"><span class="lang-dot" style="background:#e38c00"></span>SQL</span>
+        </a>
+        <a class="repo-card" href="https://github.com/CiscaHB/Data-Bootcamp-PowerBI" target="_blank" rel="noopener">
+          <div class="repo-top"><i class="ti ti-chart-bar" aria-hidden="true"></i><span class="repo-name">Power BI Dashboards</span></div>
+          <p class="repo-desc">Sales and Adventure Works dashboards — dynamic reports and DAX calculations.</p>
+          <span class="repo-lang"><span class="lang-dot" style="background:#F2C811"></span>Power BI</span>
+        </a>
+        <a class="repo-card" href="https://github.com/CiscaHB/Data-Bootcamp-Python-Basics" target="_blank" rel="noopener">
+          <div class="repo-top"><i class="ti ti-brand-python" aria-hidden="true"></i><span class="repo-name">Python Basics</span></div>
+          <p class="repo-desc">Python scripts from the Data Tech Bootcamp — functions, loops, and basic data handling.</p>
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5"></span>Jupyter Notebook</span>
+        </a>
+        <a class="repo-card" href="https://github.com/CiscaHB/Data-Bootcamp-Python-Pandas" target="_blank" rel="noopener">
+          <div class="repo-top"><i class="ti ti-brand-python" aria-hidden="true"></i><span class="repo-name">Python Pandas</span></div>
+          <p class="repo-desc">Data manipulation and analysis using the pandas library.</p>
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5"></span>Jupyter Notebook</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Journey -->
+    <section class="section">
+      <p class="section-label">Journey</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">Software Engineer</div>
+            <div class="tl-sub">Built robust corporate systems — strong technical foundation</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">Care &amp; Charity Sector</div>
+            <div class="tl-sub">Developed deep empathy for end users and human-centred problem solving</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">Data Tech Bootcamp — LeepTalent</div>
+            <div class="tl-sub">SQL · Python · Excel · Power BI · Tableau · Azure</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">Now: Data Analyst</div>
+            <div class="tl-sub">Seeking roles at the intersection of data and societal impact</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section">
+      <p class="section-label">Contact</p>
+      <div class="contact-row">
+        <a class="contact-chip" href="https://github.com/CiscaHB" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+        </a>
+        <!-- Replace the href below with your LinkedIn URL -->
+        <a class="contact-chip" href="https://linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+        </a>
+        <!-- Replace with your email address -->
+        <a class="contact-chip" href="mailto:your@email.com">
+          <i class="ti ti-mail" aria-hidden="true"></i> Email
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Cisca HB · <a href="https://github.com/CiscaHB" target="_blank" rel="noopener">github.com/CiscaHB</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
