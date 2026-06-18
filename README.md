@@ -1,2 +1,2 @@
-# https-ciscahb.github.io-CiscaHB-
+# ciscahb.github.io
 GitHub Pages
