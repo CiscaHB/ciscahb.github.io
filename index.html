@@ -198,6 +198,21 @@
       overflow: hidden;
     }
     .skill-bar-fill { height: 100%; border-radius: 2px; background: var(--accent-mid); }
+    .skill-project-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .skill-project-link:hover { text-decoration: underline; }
+    .skill-project-link.disabled {
+      color: var(--text-faint);
+      cursor: default;
+      pointer-events: none;
+    }
 
     /* ── Repos ── */
     .repo-grid {
@@ -352,36 +367,43 @@
           <div class="skill-name">Data Analysis</div>
           <div class="skill-detail">Cleaning, analysis, visualising</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
         <div class="skill-tile">
           <div class="skill-name">SQL</div>
           <div class="skill-detail">Queries, filtering, relational databases</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+          <a class="skill-project-link" href="projects-sql.html">Projects →</a>
         </div>
         <div class="skill-tile">
           <div class="skill-name">Python</div>
           <div class="skill-detail">Scripts, loops, data handling</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
         <div class="skill-tile">
           <div class="skill-name">Excel</div>
           <div class="skill-detail">Dashboards, pivot tables, formulas</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
         <div class="skill-tile">
           <div class="skill-name">Power BI</div>
           <div class="skill-detail">Dynamic reports, DAX, modelling</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:76%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
         <div class="skill-tile">
           <div class="skill-name">Tableau</div>
           <div class="skill-detail">Interactive dashboards, visual storytelling</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:74%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
         <div class="skill-tile">
           <div class="skill-name">Azure</div>
           <div class="skill-detail">Cloud data services, storage, workflows</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+          <span class="skill-project-link disabled">Projects coming soon</span>
         </div>
       </div>
     </section>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Projects — Cisca HB</title>
+  <meta name="description" content="SQL projects by Cisca HB — relational databases, queries, and data analysis." />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/293821705?v=4" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.3.0/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F5F0;
+      --bg-secondary: #EAF0EC;
+      --text: #1E2820;
+      --text-muted: #5C6E63;
+      --text-faint: #8A9E93;
+      --border: rgba(45,92,82,0.15);
+      --border-hover: rgba(45,92,82,0.35);
+      --accent: #2D5C52;
+      --accent-mid: #4E7B6A;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141d19;
+        --bg-secondary: #1c2922;
+        --text: #e4ede8;
+        --text-muted: #8aaa97;
+        --text-faint: #5a7265;
+        --border: rgba(100,180,150,0.15);
+        --border-hover: rgba(100,180,150,0.32);
+        --accent: #7bbfaa;
+        --accent-mid: #5fa08c;
+      }
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .page { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Nav */
+    .topnav {
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .topnav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .topnav a:hover { text-decoration: underline; }
+    .topnav i { font-size: 14px; }
+
+    /* Banner */
+    .banner {
+      background: #2D5C52;
+      margin: 0 -1.5rem;
+      padding: 2.25rem 1.5rem;
+    }
+    .banner-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(240,247,244,0.6); margin-bottom: 6px;
+    }
+    .banner-title {
+      font-family: "Lora", Georgia, serif;
+      font-size: 28px; font-weight: 600; color: #F0F7F4;
+      line-height: 1.3; margin-bottom: 8px;
+    }
+    .banner-sub { font-size: 14px; color: rgba(240,247,244,0.72); max-width: 520px; }
+
+    /* Sections */
+    .section { padding: 2.25rem 0; border-bottom: 0.5px solid var(--border); }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
+    }
+
+    /* Project cards */
+    .project-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .project-card:last-child { margin-bottom: 0; }
+
+    .project-header { padding: 1.25rem 1.5rem 1rem; border-bottom: 0.5px solid var(--border); }
+    .project-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--accent-mid);
+      background: var(--bg-secondary); border-radius: 4px;
+      padding: 3px 8px; margin-bottom: 10px;
+    }
+    .project-tag i { font-size: 13px; }
+    .project-title {
+      font-family: "Lora", Georgia, serif;
+      font-size: 20px; font-weight: 600; margin-bottom: 6px;
+    }
+    .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; max-width: 580px; }
+
+    /* Concept pills */
+    .concepts {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      padding: 1rem 1.5rem; border-bottom: 0.5px solid var(--border);
+      background: var(--bg-secondary);
+    }
+    .concept-pill {
+      font-size: 12px; color: var(--accent);
+      border: 0.5px solid var(--border-hover);
+      border-radius: 20px; padding: 3px 10px; background: var(--bg);
+    }
+
+    /* Images */
+    .project-image-wrap { padding: 1.5rem; }
+    .project-image-wrap img {
+      width: 100%; border-radius: var(--radius-md);
+      border: 0.5px solid var(--border); display: block;
+    }
+    .project-image-caption {
+      margin-top: 10px; font-size: 12px;
+      color: var(--text-faint); text-align: center; font-style: italic;
+    }
+
+    /* Takeaways */
+    .takeaways { padding: 0 1.5rem 1.5rem; }
+    .takeaway-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px;
+    }
+    .takeaway-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .takeaway-list li {
+      font-size: 13px; color: var(--text-muted);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .takeaway-list li::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-mid); flex-shrink: 0; margin-top: 6px;
+    }
+    .takeaway-list strong { color: var(--text); }
+    code {
+      font-size: 12px; background: var(--bg-secondary);
+      border: 0.5px solid var(--border); border-radius: 3px;
+      padding: 1px 5px; font-family: "SF Mono", "Fira Code", monospace;
+    }
+
+    /* GitHub button */
+    .gh-link-wrap { padding: 0 1.5rem 1.5rem; }
+    .gh-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md); font-size: 13px; font-weight: 500;
+      color: var(--text); background: var(--bg); text-decoration: none;
+      transition: background 0.15s;
+    }
+    .gh-btn:hover { background: var(--bg-secondary); }
+
+    /* Footer */
+    .footer { padding: 2rem 0; font-size: 12px; color: var(--text-faint); text-align: center; }
+    .footer a { color: var(--text-muted); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) { .banner-title { font-size: 22px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav class="topnav" aria-label="Breadcrumb">
+      <a href="index.html"><i class="ti ti-home" aria-hidden="true"></i> Home</a>
+      <i class="ti ti-chevron-right" aria-hidden="true"></i>
+      <span>SQL Projects</span>
+    </nav>
+
+    <div class="banner">
+      <div class="banner-eyebrow">Skills / SQL</div>
+      <div class="banner-title">SQL Projects</div>
+      <div class="banner-sub">Querying, joining, and drawing insight from relational databases — from fundamentals to practical MySQL.</div>
+    </div>
+
+    <section class="section">
+      <p class="section-label">Projects</p>
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-tag"><i class="ti ti-file-text" aria-hidden="true"></i> Study Resource</div>
+          <h2 class="project-title">From Spreadsheets to SQL: A Junior Data Technician's Guide</h2>
+          <p class="project-desc">A visual guide exploring why relational databases outperform spreadsheets for high-volume data, covering SQL vs NoSQL architecture, normalisation, and the core JOIN types every data technician needs.</p>
+        </div>
+        <div class="concepts">
+          <span class="concept-pill">Relational vs NoSQL</span>
+          <span class="concept-pill">Normalisation</span>
+          <span class="concept-pill">INNER JOIN</span>
+          <span class="concept-pill">LEFT JOIN</span>
+          <span class="concept-pill">Data Integrity</span>
+          <span class="concept-pill">Table Relationships</span>
+        </div>
+        <div class="project-image-wrap">
+          <img src="sql-infographic.png" alt="Infographic: From Spreadsheets to SQL — A Junior Data Technician's Guide." />
+          <p class="project-image-caption">Infographic created with NotebookLM — database fundamentals, SQL vs NoSQL architecture, normalisation, and JOIN types.</p>
+        </div>
+        <div class="takeaways">
+          <div class="takeaway-label">Key takeaways</div>
+          <ul class="takeaway-list">
+            <li>Relational databases use predefined tables for high data integrity — ideal for structured records like payments and student data.</li>
+            <li>NoSQL databases use flexible JSON or key-value pairs, suited to unstructured data like website activity logs.</li>
+            <li>Normalisation splits data across specialised tables, reducing redundancy and improving query speed.</li>
+            <li>INNER JOIN returns only matching records across both tables; LEFT JOIN includes all rows from the primary table even where no match exists.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-tag"><i class="ti ti-database" aria-hidden="true"></i> MySQL Query</div>
+          <h2 class="project-title">Cities in Europe — SQL Query with JOIN</h2>
+          <p class="project-desc">A practical MySQL query joining a <code>country</code> table to a <code>city</code> table to extract every European capital city, filtered by continent and sorted alphabetically by country.</p>
+        </div>
+        <div class="concepts">
+          <span class="concept-pill">SELECT</span>
+          <span class="concept-pill">JOIN … ON</span>
+          <span class="concept-pill">WHERE</span>
+          <span class="concept-pill">ORDER BY</span>
+          <span class="concept-pill">Aliasing (AS)</span>
+          <span class="concept-pill">Multi-table Query</span>
+        </div>
+        <div class="project-image-wrap">
+          <img src="sql-query-screenshot.png" alt="MySQL Workbench screenshot: JOIN query retrieving European capital cities with result grid." />
+          <p class="project-image-caption">MySQL Workbench — query #14 from the Data Bootcamp SQL repository. Returns capital cities across all European countries, ordered by country name.</p>
+        </div>
+        <div class="takeaways">
+          <div class="takeaway-label">What this query does</div>
+          <ul class="takeaway-list">
+            <li><strong>JOIN:</strong> Links the <code>country</code> table to the <code>city</code> table on the capital city ID, combining data from two sources in one result.</li>
+            <li><strong>WHERE:</strong> Filters rows to only European countries, reducing the dataset to the relevant continent.</li>
+            <li><strong>Aliasing:</strong> Renames columns (<code>c.Name as CapitalCity</code>) for clarity in the result grid.</li>
+            <li><strong>ORDER BY:</strong> Sorts results alphabetically by country name, making the output easy to scan.</li>
+          </ul>
+        </div>
+        <div class="gh-link-wrap">
+          <a class="gh-btn" href="https://github.com/CiscaHB/Data-Bootcamp-SQL-Repository" target="_blank" rel="noopener">
+            <i class="ti ti-brand-github" aria-hidden="true"></i> View full SQL repository on GitHub ↗
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Cisca HB · <a href="index.html">← Back to portfolio</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
